@@ -1,0 +1,24 @@
+START
+  SET char_count = 0
+  SET word_count = 0
+  SET vowel_count = 0
+  SET vowels = "aeiouAEIOU"
+  
+  FOR each character in sentence
+    IF character is not "."
+      INCREMENT char_count
+    END IF
+
+    IF character is " " AND next character is not " " AND next character is not "."
+      INCREMENT word_count
+    END IF
+
+    IF character is in vowels
+      INCREMENT vowel_count
+    END IF
+  END FOR
+  
+  INCREMENT word_count by 1 (to account for last word)
+
+  RETURN char_count, word_count, vowel_count
+END
